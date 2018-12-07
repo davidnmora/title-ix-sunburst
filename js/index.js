@@ -1,5 +1,5 @@
-const width = window.innerWidth,
-	height = window.innerHeight,
+const width = 450,
+	height = 450,
 	maxRadius = Math.min(width, height) / 2 - 5
 
 const TOTAL_CASES = 191
@@ -64,11 +64,13 @@ var div = d3.select("body .toolTip")
 const svg = d3
 	.select("body")
 	.append("svg")
-	.style("width", "100vw")
-	.style("height", "100vh")
-	.attr("viewBox", `${-width / 2} ${-height / 2} ${width} ${height}`) // center viewbox over vis (rather than vice versa)
+	.style("width", "850px")
+	.style("height", "700px")
+	.attr("transform", `translate(${50-width / 2} ${100-height / 2})`) // center viewbox over vis (rather than vice versa)
+
 
 const centerText = svg.append("g")
+	.attr("transform", `translate(${width } ${height})`)
 	.attr("text-anchor", "middle")
 	.append('text')
 
@@ -88,8 +90,8 @@ centerText
 	.text('total reports from Sept. 2016 - Aug. 2017')
 
 // Policy Violations annotation in upper right (which we append to center, then shift)
-const topRightX = 0.29 * width
-const topRightY = - 0.4 * height
+const topRightX = +0.4 * width
+const topRightY = -0.4 * height
 centerText
 	.append('tspan')
 	.attr("text-anchor", "start")
@@ -124,6 +126,7 @@ const injectTooltipWithText = (d) => {
 const newSlice = slice
 	.enter()
 	.append("g")
+	.attr("transform", `translate(${width} ${height})`)
 	.attr("class", d => {
 		if (!d.parent) {
 			return "invisible-root-node slice" // Hide root node, replace with custom display

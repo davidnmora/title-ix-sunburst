@@ -1,7 +1,7 @@
 body {
     font-family: "Futura", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .slice:hover {
@@ -27,6 +27,7 @@ body {
 
 
 .slice text {
+    font-size: 12px;
     pointer-events: none;
     dominant-baseline: middle;
     text-anchor: middle;
@@ -35,6 +36,7 @@ body {
 
 /* Tooltip */
 .toolTip {
+    z-index: 999999;
     position: absolute;
     display: none;
     min-width: 400px;
